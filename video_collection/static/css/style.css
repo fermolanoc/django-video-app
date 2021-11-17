@@ -6,17 +6,53 @@
 
 root {
   --bg: #e9edef;
-  --main: ##7db1bf;
+  --main: #7db1bf;
   --dark-text: #00140f;
 }
 
 body {
   /* background-color: var(--bg); */
   background-color: #e9edef;
+  padding: 1rem 2rem;
 }
 
 .app-name {
   /* color: var(--dark-text); */
   color: #00140f;
   font-weight: bold;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+form label {
+  margin-top: 20px;
+  margin-bottom: 4px;
+}
+form input,
+form textarea {
+  border: none;
+  height: auto;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  caret-color: #7db1bf;
+  border-radius: 8px;
+}
+form button {
+  /* width: 40%; */
+  margin-top: 20px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: #7db1bf;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
 }
