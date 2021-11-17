@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib import messages
 from .forms import VideoForm
+from .models import Video
 
 
 def home(request):
@@ -21,3 +22,8 @@ def add(request):
             return render(request, 'video_collection/add.html', {'new_video_form': new_video_form})
     new_video_form = VideoForm()
     return render(request, 'video_collection/add.html', {'new_video_form': new_video_form})
+
+
+def video_list(request):
+    videos = Video.objects.all()
+    return render(request, 'video_collection/video_list.html', {'videos': videos})
