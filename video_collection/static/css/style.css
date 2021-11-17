@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+root {
+  --bg: #e9edef;
+  --main: ##7db1bf;
+  --dark-text: #00140f;
+}
+
+body {
+  /* background-color: var(--bg); */
+  background-color: #e9edef;
+}
+
+.app-name {
+  /* color: var(--dark-text); */
+  color: #00140f;
+  font-weight: bold;
+}
