@@ -12,9 +12,11 @@ def home(request):
     app_name = 'Coding Tutorials'
     return render(request, 'video_collection/home.html', {'app_name': app_name})
 
-
+# Define view for url /add to add new video
 def add(request):
 
+    # when new video form is filled out and sent, validate fields, 
+    # save it and show url /video_list with all videos
     if request.method == 'POST':
         new_video_form = VideoForm(request.POST)
         if new_video_form.is_valid():
@@ -41,12 +43,14 @@ def video_list(request):
         videos = Video.objects.filter(name__icontains=search_term).order_by(Lower('name'))
     else: # form is not filled in or this is the first time user sees the page
         search_form = SearchForm()
-        videos = Video.objects.all().order_by(Lower('name'))
+        videos = Video.objects.all().order_by(Lower('name')) # show videos found, if any, with string passed by user, ordered by name
 
     return render(request, 'video_collection/video_list.html', {'videos': videos, 'search_form': search_form})
 
 
+# Get pk of video clicked, use pk to generate a new personalized url to show details of video
 def video_details(request, video_pk):
+    # if video doesn't exist, return a 404 page
     video = get_object_or_404(Video, pk=video_pk)
     if video:
         return render(request, 'video_collection/video_details.html', {'video': video})
