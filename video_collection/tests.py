@@ -162,3 +162,21 @@ class TestVideoModel(TestCase):
             Video.objects.create(name='ZXY', notes='example', url='https://www.youtube.com/watch?v=123')
 
 
+
+class TestVideoDetails(TestCase):
+
+    def test_url_shows_all_info_if_video_exists(self):
+        v1 = Video.objects.create(name='ABC', notes='example', url='https://www.youtube.com/watch?v=456')
+        response = self.client.get(reverse('video_details', kwargs={'video_pk':1}))
+        self.assertContains(response, 'Title:')
+        self.assertContains(response, 'ABC')
+        self.assertContains(response, 'Description')
+        self.assertContains(response, 'example')
+        self.assertContains(response, 'https://www.youtube.com/watch?v=456')
+    
+
+    def test_response_404_for_video_details_page_for_video_non_existent(self):
+        response = self.client.get(reverse('video_details', kwargs={'video_pk':1}))
+        self.assertEqual(404, response.status_code)
+
+
