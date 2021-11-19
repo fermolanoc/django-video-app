@@ -1,0 +1,12 @@
+{% extends 'video_collection/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="video-details">
+    <h2>Video Details</h2>
+    <p><strong>Title: </strong>{{ video.name }}</p>
+    <p><strong>Description: </strong>{{ video.notes }}</p>
+    <p class="video-url"><strong>YouTube url: </strong><a href="{{ video.url }}">{{ video.url }}</a></p>
+    <p ></p>
+</div>
+{% endblock %}

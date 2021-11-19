@@ -14,14 +14,11 @@ body {
   padding-right: 30px;
 }
 
-a {
-  color: rgb(73, 150, 73);
-  font-size: .8rem;
-}
 
-.video-name {
+.video-name, .video-name > a{
   font-size: 1.4rem;
   margin-top: 30px;
+  color: white;
 }
 .video-notes {
   font-style: italic;
@@ -30,6 +27,8 @@ a {
 }
 .video-url {
   width: 50ch;
+  color: rgb(73, 150, 73);
+  font-size: .8rem;
 }
 
 
@@ -39,4 +38,8 @@ a {
   justify-content: center;
   align-items: center;
   /* gap: 4px; */
+}
+
+.video-details {
+  width: 40%;
 }
